@@ -17,4 +17,4 @@ def dashboard():
     conn = get_db(); r = conn.execute('SELECT * FROM duty_log ORDER BY id DESC').fetchall(); conn.close(); return render_template('dashboard.html', records=r)
 if __name__ == '__main__':
     c = get_db(); c.execute('CREATE TABLE IF NOT EXISTS duty_log (id INTEGER PRIMARY KEY AUTOINCREMENT, date_logged TEXT, shift TEXT, rank_name TEXT, batch_team TEXT, location TEXT, duty_type TEXT, time_duration TEXT, weapons TEXT, achievements TEXT, remarks TEXT)'); c.commit(); c.close()
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run()
